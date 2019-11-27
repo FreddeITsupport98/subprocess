@@ -1,0 +1,11 @@
+# https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771865%28v%3dws.11%29 net user
+# https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc771131(v=ws.11) powershell
+
+#net user [<UserName> {<Password> | *} [<Options>]] [/domain]
+#net user [<UserName> {<Password> | *} /add [<Options>] [/domain]]
+#net user [<UserName> [/delete] [/domain]]
+
+ net user Testuser li05zzIe2 /add /colo.rs
+
+net user John fadf24as /ADD
+net user John /DELETE
