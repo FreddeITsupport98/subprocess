@@ -23,7 +23,12 @@ import sys
 #wsl = subprocess.call(['ls'])
 #print(wsl
 
-print(hej vil )
+print("hej vill du skapa ny användare?")
 
-ws1 = subprocess.call(['net', 'user', 'Testuser', 'li05zzIe2', '/ADD'], shell=True)
-print(ws1) 
+input('ja', 'nej')
+
+if a == 'ja':
+    ws1 = subprocess.call(['net', 'user', 'Testuser', 'li05zzIe2', '/ADD'], shell=True)
+    print(ws1)
+    elif:
+        exit
