@@ -50,8 +50,7 @@ Val: ''')
                     if platform.system() == "Windows":
                         cmd = 'New-ADUser -Name', names[arraynumber1], surnames[arraynumber1], '-GivenName', names[arraynumber1], '-Surname ', surnames[arraynumber1], '-SamAccountName', names[arraynumber1] + '.' + surnames[arraynumber1], '-AccountPassword', passwords[arraynumber1], '-Enabled $true'
                         #returned_value = subprocess.call(cmd, shell=True)
-                        #print("returned_value: ", returned_value)
-                        print("adasd")
+                        #print("returned_value: ", returned_value
                         arraynumber1 += 1
                 
         else:
