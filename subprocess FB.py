@@ -91,7 +91,7 @@ Val: ''')
                     print(platform.system())
 
                     if platform.system() == "Windows":
-                        cmd = ('powershell','New-ADUser -Name', names[arraynumber1], surnames[arraynumber1], '-GivenName', names[arraynumber1], '-Surname ', surnames[arraynumber1], '-SamAccountName', names[arraynumber1] + '.' + surnames[arraynumber1], '-AccountPassword', passwords[arraynumber1], '-Enabled $true')
+                        cmd = ('New-ADUser -Name', names[arraynumber1], surnames[arraynumber1], '-GivenName', names[arraynumber1], '-Surname ', surnames[arraynumber1], '-SamAccountName', names[arraynumber1] + '.' + surnames[arraynumber1], '-AccountPassword', passwords[arraynumber1], '-Enabled $true')
                         returned_value = subprocess.call(cmd)
                         print("returned_value: ", returned_value)
                         arraynumber1 += 1

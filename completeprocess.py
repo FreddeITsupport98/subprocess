@@ -48,7 +48,7 @@ Val: ''')
                     print(platform.system())
 
                     if platform.system() == "Windows":
-                        cmd = 'New-ADUser -Name', names[arraynumber1], surnames[arraynumber1], '-GivenName', names[arraynumber1], '-Surname ', surnames[arraynumber1], '-SamAccountName', names[arraynumber1] + '.' + surnames[arraynumber1], '-AccountPassword', passwords[arraynumber1], '-Enabled $true'
+                        cmd = ('New-ADUser -Name', names[arraynumber1], surnames[arraynumber1], '-GivenName', names[arraynumber1], '-Surnames', surnames[arraynumber1], '-SamAccountName', names[arraynumber1] + '.' + surnames[arraynumber1], '-AccountPassworld', passwords[arraynumber1], '-UserPrincipalName',  emails[arraynumber1], '-Path',[OU=Managers,DC=enterprise,DC=com] '-AccountPassword(Read-Host -AsSecureString "Input Password")', '-Enabled $true') //lagt till med flaggor ska testa inför bug fel
                         #returned_value = subprocess.call(cmd, shell=True)
                         #print("returned_value: ", returned_value
                         arraynumber1 += 1
