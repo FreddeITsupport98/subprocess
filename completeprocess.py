@@ -19,7 +19,8 @@ while menu:
 Val: ''')
     if option == "1" or option == "2":
         if option == "1":
-            print("skapa användare")
+            print('\n')
+            print("skapa användare läge")
             with open('Users.csv') as CSVfile:
                 readCSV = csv.reader(CSVfile, delimiter=',')
                 names = []
@@ -30,6 +31,9 @@ Val: ''')
                     surname = row[2]
                     names.append(name)
                     surnames.append(surname)
+                option = input('''
+                Choose your operating system(Windows or Linux): 
+                ''')
                 arraynumber1 = int(input("Start From Row: "))
                 arraynumber2 = int(input("Stop at Row: "))
                 while arraynumber1 <= arraynumber2:
@@ -47,12 +51,25 @@ Val: ''')
 
                     print(platform.system())
 
+                    #CN=karl ok. alvin,OU=localusers,DC=server2019test,DC=test
+                
+                
+
+                if option == "Windows":
                     if platform.system() == "Windows":
-                        cmd = ('New-ADUser -Name', names[arraynumber1], surnames[arraynumber1], '-GivenName', names[arraynumber1], '-Surnames', surnames[arraynumber1], '-SamAccountName', names[arraynumber1] + '.' + surnames[arraynumber1], '-AccountPassworld', passwords[arraynumber1], '-UserPrincipalName',  emails[arraynumber1], '-Path',[OU=Managers,DC=enterprise,DC=com] '-AccountPassword(Read-Host -AsSecureString "Input Password")', '-Enabled $true') //lagt till med flaggor ska testa inför bug fel
+                        cmd = ('New-ADUser -Name', names[arraynumber1], surnames[arraynumber1], '-GivenName', names[arraynumber1], '-Surnames', surnames[arraynumber1], '-SamAccountName', names[arraynumber1] + '.' + surnames[arraynumber1], '-AccountPassworld', passwords[arraynumber1], '-UserPrincipalName',  emails[arraynumber1], '-distinguishedName', OU[arraynumber1],DC[arraynumber1],DC[arraynumber1] , '-Enabled $true') #lagt till med flaggor ska testa inför bug fel
                         #returned_value = subprocess.call(cmd, shell=True)
                         #print("returned_value: ", returned_value
                         arraynumber1 += 1
-                
+
+                if option == "Linux":   
+                    if platform.system() == "Linux":
+                        cmd = 'useradd --password', passwords[arraynumber1], '-c', names[arraynumber1], surnames[arraynumber1], '-m', names[arraynumber1] + '.' + surnames[arraynumber1]
+                        returned_value = subprocess.call(cmd, shell=True)
+                        print("returned_value: ", returned_value)
+                        arraynumber1 += 1
+                else:
+                    print('Choose one!')
         else:
             print("ta bort användare")
 
