@@ -52,22 +52,17 @@ Val: ''')
                     print(platform.system())
 
                     #CN=karl ok. alvin,OU=localusers,DC=server2019test,DC=test
-                
-                
-
                 if option == "Windows":
-                    if platform.system() == "Windows":
+                    if platform.system() == 'Windows':
                         cmd = ('New-ADUser -Name', names[arraynumber1], surnames[arraynumber1], '-GivenName', names[arraynumber1], '-Surnames', surnames[arraynumber1], '-SamAccountName', names[arraynumber1] + '.' + surnames[arraynumber1], '-AccountPassworld', passwords[arraynumber1], '-UserPrincipalName',  emails[arraynumber1], '-distinguishedName', OU[arraynumber1],DC[arraynumber1],DC[arraynumber1] , '-Enabled $true') #lagt till med flaggor ska testa inför bug fel
-                        #returned_value = subprocess.call(cmd, shell=True)
-                        #print("returned_value: ", returned_value
-                        arraynumber1 += 1
-
+                        returned_value = subprocess.call(cmd, shell=True)
+                        print("returned_value: ", returned_value
+                        
                 if option == "Linux":   
                     if platform.system() == "Linux":
                         cmd = 'useradd --password', passwords[arraynumber1], '-c', names[arraynumber1], surnames[arraynumber1], '-m', names[arraynumber1] + '.' + surnames[arraynumber1]
                         returned_value = subprocess.call(cmd, shell=True)
                         print("returned_value: ", returned_value)
-                        arraynumber1 += 1
                 else:
                     print('Choose one!')
         else:
